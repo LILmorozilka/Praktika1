@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Реестр изобретений</title>
+</head>
+<body>
+    <header>
+        <h1>Великие изобретения человечества</h1>
+            <ul>
+                <li><a href="main.html">Главная страница</a></li>
+                <li><a href="page.html">Печатный станок Гутенберга</a></li>
+                <li><a href="table.html">Реестр изобретений (Таблица)</a></li>
+            </ul>
+    </header>
+
+    <main>
+        <section>
+            <h2>Настройка графика</h2>
+            <form action="#" method="get" id="chartForm">
+                <fieldset>
+                    <legend>Параметры визуализации</legend>
+                    
+                    <h3>Значение по оси OX</h3>
+                    <p>
+                        <input type="radio" id="ox_category" name="ox_value" value="category" checked>
+                        <label for="ox_category">Категория изобретения</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="ox_country" name="ox_value" value="country">
+                        <label for="ox_country">Страна происхождения</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="ox_century" name="ox_value" value="century">
+                        <label for="ox_century">Век</label>
+                    </p>
+
+                    <h3>Значение по оси OY</h3>
+                    <p>
+                        <input type="checkbox" id="oy_count" name="oy_value" value="count" checked>
+                        <label for="oy_count">Количество изобретений</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="oy_impact" name="oy_value" value="impact">
+                        <label for="oy_impact">Индекс влияния (оценка)</label>
+                    </p>
+
+                    <p>
+                        <button type="submit">Построить график</button>
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+
+        <section>
+            <h2>Фильтр данных</h2>
+            <form action="#" method="get" id="filterForm">
+                <fieldset>
+                    <legend>Параметры фильтрации</legend>
+                    
+                    <p>
+                        <label for="filter_name">Название изобретения:</label><br>
+                        <input type="text" id="filter_name" name="name" size="30">
+                    </p>
+
+                    <p>
+                        <label for="filter_inventor">Изобретатель:</label><br>
+                        <input type="text" id="filter_inventor" name="inventor" size="30">
+                    </p>
+
+                    <p>
+                        <label for="filter_category">Категория:</label><br>
+                        <select id="filter_category" name="category">
+                            <option value="all">Все категории</option>
+                            <option value="transport">Транспорт</option>
+                            <option value="medicine">Медицина</option>
+                            <option value="it">Информационные технологии</option>
+                            <option value="industry">Промышленность</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="filter_year_from">Год: от</label>
+                        <input type="number" id="filter_year_from" name="year_from" min="-3000" max="2026" size="10">
+                        <label for="filter_year_to">до</label>
+                        <input type="number" id="filter_year_to" name="year_to" min="-3000" max="2026" size="10">
+                    </p>
+
+                    <p>
+                        <button type="submit">Применить фильтр</button>
+                        <button type="reset">Сбросить</button>
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+
+        <section>
+            <h2>Сортировка</h2>
+            <form action="#" method="get" id="sortForm">
+                <fieldset>
+                    <legend>Параметры сортировки</legend>
+                    
+                    <p>
+                        <label for="sort_level1">Первичная сортировка:</label>
+                        <select id="sort_level1" name="sort1">
+                            <option value="none">Не сортировать</option>
+                            <option value="year">По году (хронология)</option>
+                            <option value="name">По названию (А-Я)</option>
+                            <option value="category">По категории</option>
+                        </select>
+                        <input type="checkbox" id="sort1_desc" name="sort1_desc">
+                        <label for="sort1_desc">по убыванию</label>
+                    </p>
+
+                    <p>
+                        <label for="sort_level2">Вторичная сортировка:</label>
+                        <select id="sort_level2" name="sort2">
+                            <option value="none">Не сортировать</option>
+                            <option value="year">По году</option>
+                            <option value="name">По названию</option>
+                            <option value="country">По стране</option>
+                        </select>
+                        <input type="checkbox" id="sort2_desc" name="sort2_desc">
+                        <label for="sort2_desc">по убыванию</label>
+                    </p>
+
+                    <p>
+                        <button type="submit">Отсортировать таблицу</button>
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+
+        <section>
+            <h2>Реестр великих изобретений</h2>
+            <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                <caption>Список 50 ключевых изобретений, изменивших мир</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Век / Год</th>
+                        <th scope="col">Изобретатель / Регион</th>
+                        <th scope="col">Страна</th>
+                        <th scope="col">Категория</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Колесо</td>
+                        <td>IV тыс. до н.э.</td>
+                        <td>Шумеры</td>
+                        <td>Месопотамия</td>
+                        <td>Транспорт</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Письменность</td>
+                        <td>3400 до н.э.</td>
+                        <td>Шумеры</td>
+                        <td>Месопотамия</td>
+                        <td>Информация</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Парус</td>
+                        <td>3100 до н.э.</td>
+                        <td>Древний Египет</td>
+                        <td>Египет</td>
+                        <td>Транспорт</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Астролябия</td>
+                        <td>2 век до н.э.</td>
+                        <td>Древняя Греция</td>
+                        <td>Греция</td>
+                        <td>Навигация</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Стремя</td>
+                        <td>2 век до н.э.</td>
+                        <td>Китай</td>
+                        <td>Китай</td>
+                        <td>Транспорт</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Компас</td>
+                        <td>206 до н.э.</td>
+                        <td>Китай</td>
+                        <td>Китай</td>
+                        <td>Навигация</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Бумага</td>
+                        <td>105 н.э.</td>
+                        <td>Цай Лунь</td>
+                        <td>Китай</td>
+                        <td>Материалы</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Порох</td>
+                        <td>9 век</td>
+                        <td>Китай</td>
+                        <td>Китай</td>
+                        <td>Военное дело</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Очки</td>
+                        <td>1286</td>
+                        <td>Сальвино Д'Армате</td>
+                        <td>Италия</td>
+                        <td>Оптика</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Механические часы</td>
+                        <td>1300</td>
+                        <td>Европа</td>
+                        <td>Европа</td>
+                        <td>Инструменты</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Печатный станок</td>
+                        <td>1440</td>
+                        <td>Иоганн Гутенберг</td>
+                        <td>Германия</td>
+                        <td>Промышленность</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Микроскоп</td>
+                        <td>1590</td>
+                        <td>Захарий Янссен</td>
+                        <td>Нидерланды</td>
+                        <td>Наука</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Телескоп</td>
+                        <td>1608</td>
+                        <td>Ганс Липперсгей</td>
+                        <td>Нидерланды</td>
+                        <td>Наука</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Термометр</td>
+                        <td>1714</td>
+                        <td>Даниэль Фаренгейт</td>
+                        <td>Германия</td>
+                        <td>Инструменты</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Паровой двигатель</td>
+                        <td>1769</td>
+                        <td>Джеймс Уатт</td>
+                        <td>Великобритания</td>
+                        <td>Промышленность</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Вакцинация</td>
+                        <td>1796</td>
+                        <td>Эдвард Дженнер</td>
+                        <td>Великобритания</td>
+                        <td>Медицина</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Электрическая батарея</td>
+                        <td>1800</td>
+                        <td>Алессандро Вольта</td>
+                        <td>Италия</td>
+                        <td>Энергетика</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Велосипед</td>
+                        <td>1817</td>
+                        <td>Карл Дрез</td>
+                        <td>Германия</td>
+                        <td>Транспорт</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Фотография</td>
+                        <td>1826</td>
+                        <td>Жозеф Нисефор Ньепс</td>
+                        <td>Франция</td>
+                        <td>Искусство</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Швейная машина</td>
+                        <td>1846</td>
+                        <td>Исаак Зингер</td>
+                        <td>США</td>
+                        <td>Промышленность</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Лифт</td>
+                        <td>1852</td>
+                        <td>Элиша Отис</td>
+                        <td>США</td>
+                        <td>Строительство</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Холодильник</td>
+                        <td>1876</td>
+                        <td>Карл фон Линде</td>
+                        <td>Германия</td>
+                        <td>Бытовая техника</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Телефон</td>
+                        <td>1876</td>
+                        <td>Александр Белл</td>
+                        <td>США</td>
+                        <td>Связь</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Двигатель внутреннего сгорания</td>
+                        <td>1876</td>
+                        <td>Николаус Отто</td>
+                        <td>Германия</td>
+                        <td>Транспорт</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Лампа накаливания</td>
+                        <td>1879</td>
+                        <td>Томас Эдисон</td>
+                        <td>США</td>
+                        <td>Энергетика</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Радио</td>
+                        <td>1895</td>
+                        <td>Александр Попов</td>
+                        <td>Россия</td>
+                        <td>Связь</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Самолет</td>
+                        <td>1903</td>
+                        <td>Братья Райт</td>
+                        <td>США</td>
+                        <td>Транспорт</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Кондиционер</td>
+                        <td>1902</td>
+                        <td>Уиллис Кэрриер</td>
+                        <td>США</td>
+                        <td>Промышленность</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Пластик (Бакелит)</td>
+                        <td>1907</td>
+                        <td>Лео Бакеланд</td>
+                        <td>Бельгия</td>
+                        <td>Материалы</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Пылесос</td>
+                        <td>1901</td>
+                        <td>Хьюберт Бут</td>
+                        <td>Великобритания</td>
+                        <td>Бытовая техника</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>Пенициллин</td>
+                        <td>1928</td>
+                        <td>Александр Флеминг</td>
+                        <td>Великобритания</td>
+                        <td>Медицина</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>Солнечная батарея</td>
+                        <td>1954</td>
+                        <td>Bell Labs</td>
+                        <td>США</td>
+                        <td>Энергетика</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>Транзистор</td>
+                        <td>1947</td>
+                        <td>Бардин, Браттейн, Шокли</td>
+                        <td>США</td>
+                        <td>IT</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>Микроволновая печь</td>
+                        <td>1945</td>
+                        <td>Перси Спенсер</td>
+                        <td>США</td>
+                        <td>Бытовая техника</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>Интегральная схема</td>
+                        <td>1958</td>
+                        <td>Джек Килби</td>
+                        <td>США</td>
+                        <td>IT</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>Лазер</td>
+                        <td>1960</td>
+                        <td>Теодор Майман</td>
+                        <td>США</td>
+                        <td>Наука</td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>Компьютерная мышь</td>
+                        <td>1964</td>
+                        <td>Дуглас Энгельбарт</td>
+                        <td>США</td>
+                        <td>IT</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>Цифровая камера</td>
+                        <td>1975</td>
+                        <td>Стивен Сассон</td>
+                        <td>США</td>
+                        <td>Электроника</td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>Мобильный телефон</td>
+                        <td>1973</td>
+                        <td>Мартин Купер</td>
+                        <td>США</td>
+                        <td>Связь</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>Персональный компьютер</td>
+                        <td>1970-е</td>
+                        <td>Разные разработчики</td>
+                        <td>США</td>
+                        <td>IT</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>GPS</td>
+                        <td>1970-1990-е</td>
+                        <td>Министерство обороны США</td>
+                        <td>США</td>
+                        <td>Навигация</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>3D-печать</td>
+                        <td>1984</td>
+                        <td>Чак Халл</td>
+                        <td>США</td>
+                        <td>Промышленность</td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>Всемирная паутина (WWW)</td>
+                        <td>1989</td>
+                        <td>Тим Бернерс-Ли</td>
+                        <td>Великобритания</td>
+                        <td>IT</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>SMS</td>
+                        <td>1992</td>
+                        <td>Нил Папуорт</td>
+                        <td>Великобритания</td>
+                        <td>Связь</td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>Контейнерные перевозки</td>
+                        <td>1956</td>
+                        <td>Малкольм Маклин</td>
+                        <td>США</td>
+                        <td>Транспорт</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>Стиральная машина</td>
+                        <td>1908</td>
+                        <td>Алва Фишер</td>
+                        <td>США</td>
+                        <td>Бытовая техника</td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td>Стекло</td>
+                        <td>Древний Египет</td>
+                        <td>Древний Египет</td>
+                        <td>Египет</td>
+                        <td>Материалы</td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>Бетон</td>
+                        <td>Древний Рим</td>
+                        <td>Древний Рим</td>
+                        <td>Римская империя</td>
+                        <td>Строительство</td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        <td>Архимедов винт</td>
+                        <td>3 век до н.э.</td>
+                        <td>Архимед</td>
+                        <td>Древняя Греция</td>
+                        <td>Механика</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>Смартфон</td>
+                        <td>2007</td>
+                        <td>Apple Inc.</td>
+                        <td>США</td>
+                        <td>IT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Группа: Б9124-09.03.04</p>
+        <p>Разработчик: Морозов Илья Максимовичы</p>
+    </footer>
+</body>
+</html>
